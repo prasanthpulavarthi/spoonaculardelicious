@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { useEffect,useState } from 'react'
 import {Splide,SplideSlide} from "@splidejs/react-splide"
 import '@splidejs/splide/dist/css/splide.min.css';
+import {Link} from 'react-router-dom';
 
 function Veggie() {
   const[veggie,setVeggie]=useState([]);
@@ -38,9 +39,11 @@ if(check){
           return(
             <SplideSlide key={recipe.id}>
           <Card>
+            <Link to={'/recipe/'+recipe.id}>
             <p>{recipe.title}</p>
             <img src={recipe.image} alt={recipe.title}/>
             <Gradient/>
+            </Link>
 
           </Card>
           </SplideSlide>
@@ -62,8 +65,6 @@ border-radius:2rem;
 overflow:hidden;
 position:relative;
 
-
-
 img{
   border-radius:2rem;
   position:absolute;
@@ -77,8 +78,8 @@ p{
   z-index:10;
   left:50%;
   bottom:0%;
-  transform:translate(-50%,0%)
-  color:white;
+  transform:translate(-50%,0%);
+  color:#fff;
   width:100%;
   text-align:center;
   font-weight:600;
