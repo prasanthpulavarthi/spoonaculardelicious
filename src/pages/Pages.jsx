@@ -5,6 +5,8 @@ import Cuisine from './Cuisine'
 import {Routes,Route, useLocation} from "react-router-dom"
 import Recipe from './Recipe'
 import {AnimatePresence} from 'framer-motion'
+import MealPlan from '../components/MealPlan'
+
 
 function Pages() {
   const location=useLocation()
@@ -12,7 +14,9 @@ function Pages() {
     <AnimatePresence exitBeforeEnter>
 
     <Routes location={location} key={location.pathname}>
+      
         <Route path="/" element={<Home/>}/>
+        <Route path="/mealPlan" element={<MealPlan/>}/>
         <Route path="/cuisine/:type" element={<Cuisine/>}/>
         <Route path="/searched/:search" element={<Searched/>}/>
         <Route path="/recipe/:name" element={<Recipe/>}/>
